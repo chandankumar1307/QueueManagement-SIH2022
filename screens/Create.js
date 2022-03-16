@@ -4,8 +4,6 @@ import { View, StyleSheet, Text } from 'react-native';
 import TopMenu from '../components/TopMenu';
 
 export default function CreateScreen({navigation}) {
-
-
   return (
     <View style={styles.container}>
         <TopMenu navigation={navigation}/>

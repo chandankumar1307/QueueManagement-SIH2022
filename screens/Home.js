@@ -4,12 +4,9 @@ import { SafeAreaView, StyleSheet } from 'react-native';
 import Button from '../components/Button';
 import TopMenu from '../components/TopMenu';
 import CurrentQueue from '../components/ActiveQueue';
-import QRButton from '../components/QRButton';
 
 export default function HomeScreen({navigation}) {
     const openJoinScreen = () => navigation.navigate('Join');
-    const openCreateScreen = () => navigation.navigate('Create');
-    const openManageScreen = () => navigation.navigate('Manage');
 
   return (
     <SafeAreaView style={styles.container}>
@@ -24,9 +21,9 @@ export default function HomeScreen({navigation}) {
 
             <Button 
                 text='Scan and Join' 
-                icon={require('../assets/qricon.jpeg')}
+                icon={require('../assets/qricon.png')}
                 style={styles.QRButton}
-                onPress={openJoinScreen}>
+                onPress={() => console.log('Not implemented')}>
             </Button>
 
         </SafeAreaView>
