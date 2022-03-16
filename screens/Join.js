@@ -4,8 +4,6 @@ import { SafeAreaView, StyleSheet, Text } from 'react-native';
 import TopMenu from '../components/TopMenu';
 
 export default function JoinScreen({navigation}) {
-
-
   return (
     <SafeAreaView style={styles.container}>
         <TopMenu navigation={navigation}/>

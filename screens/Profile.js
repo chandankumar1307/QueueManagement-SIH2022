@@ -4,8 +4,6 @@ import { SafeAreaView, StyleSheet, Text } from 'react-native';
 import TopMenu from '../components/TopMenu';
 
 export default function ProfileScreen({navigation}) {
-
-
   return (
     <SafeAreaView style={styles.container}>
         <TopMenu navigation={navigation}/>
@@ -21,4 +19,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  });
+});
