@@ -29,9 +29,7 @@ const styles = StyleSheet.create({
     text: {
         color: 'black',
         fontWeight: 'bold',
-        textTransform: 'capitalize',
         fontSize: 24,
-        textAlign: 'left',
     },
 
     view: {
@@ -41,7 +39,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         alignItems: 'flex-start',
         width:'100%',
-        paddingTop: 15,
+        marginTop: 35,
     },
 
     profile: {

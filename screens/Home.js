@@ -37,10 +37,8 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: '#fff',
       alignItems: 'center',
-      flexWrap: 'wrap',
       alignContent: 'flex-start',
-      flexDirection: 'column',
-      
+      justifyContent: 'space-evenly',
     },
   
     buttonsView: {
