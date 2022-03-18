@@ -33,8 +33,6 @@ const styles = StyleSheet.create({
     },
 
     view: {
-        flex: 1,
-        position: 'relative',
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'flex-start',

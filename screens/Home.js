@@ -1,12 +1,18 @@
-import * as React from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
+import { useState } from 'react';
+import { View, SafeAreaView, StyleSheet } from 'react-native';
 
 import Button from '../components/Button';
 import TopMenu from '../components/TopMenu';
-import CurrentQueue from '../components/ActiveQueue';
+import ActiveQueue from '../components/ActiveQueue';
 
 export default function HomeScreen({navigation}) {
     const openJoinScreen = () => navigation.navigate('Join');
+    const [queueState, setQueueState] = useState([]);
+    
+    // Temporary
+    const addTestQueueCard = () => {
+      setQueueState([...queueState, {name: 'Test', number: Math.floor(Math.random() * 100)}]);
+    }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -16,7 +22,7 @@ export default function HomeScreen({navigation}) {
                 text='Join Queue' 
                 icon={require('../assets/Queue.png')}
                 style={styles.joinButton}
-                onPress={openJoinScreen}>
+                onPress={addTestQueueCard}>
             </Button>
 
             <Button 
@@ -27,7 +33,7 @@ export default function HomeScreen({navigation}) {
             </Button>
 
         </SafeAreaView>
-        <CurrentQueue/>
+        <ActiveQueue queueState={queueState}/>
     </SafeAreaView>
   );
 }
@@ -42,7 +48,7 @@ const styles = StyleSheet.create({
     },
   
     buttonsView: {
-        flex: 2,
+        marginTop: 50,
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         alignItems: 'center',
