@@ -1,46 +1,55 @@
 import {useState} from "react";
 import { View, StyleSheet, TouchableOpacity, Text, Modal } from "react-native";
 
+function QueueCardPopUp({name, number, visible, onPress}) {
+    return (
+        <Modal 
+        animationType="slide" 
+        transparent={true} 
+        visible={visible}>
+
+            <View style={styles.modal}>
+
+                <View style={styles.modalBar}>
+                    <TouchableOpacity onPress={onPress}>
+                        <View style={styles.square}>
+                            <Text>X</Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+
+                <Text>{name}</Text>
+                <Text>Queue number: {number}</Text>
+                <Text>Queue Desicription and Other Deatils:</Text>
+            </View>
+        </Modal>
+    );
+}
+
 export default function QueueCard( {name, number} ) {
     const [modalVisible, setModalVisible] = useState(false);
     const onPress = () => modalVisible ? setModalVisible(false) : setModalVisible(true);
 
     return (
         <TouchableOpacity onPress={onPress}>
-            <Modal 
-            animationType="slide" 
-            transparent={true} 
-            visible={modalVisible}>
-                <View style={styles.modal}>
-
-                    <View style={styles.modalBar}>
-                        <TouchableOpacity onPress={onPress}>
-                            <View style={styles.square}>
-                                <Text>X</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
-
-                    <Text>{name}</Text>
-                    <Text>Queue number: {number}</Text>
-                    <Text>Queue Desicription and Other Deatils:</Text>
-                </View>
-            </Modal>
+            <QueueCardPopUp visible={modalVisible} name={name} number={number} onPress={onPress} />
 
             <View style={styles.view}>
 
                 <View style={styles.viewLeft}>
-
+                    {/* Square box containing the queue number */}
                     <View style={styles.square}>
                         <Text>{number}</Text>
                     </View>
-                
                 </View>
+                
+          
 
                 <View style={styles.viewRight}>
                     <Text style={styles.text}>{name}</Text>
                 </View>
             </View>
+
         </TouchableOpacity>
     );
 }
@@ -48,12 +57,13 @@ export default function QueueCard( {name, number} ) {
 const styles = StyleSheet.create({
     view: {
         flexDirection: 'row',
+        justifyContent: 'space-between',
         alignItems: 'center',
-        justifyContent: 'space-around',
+   
         backgroundColor: '#EDEDED',
         padding: 15,
         borderRadius: 8,
-        marginBottom: 20,
+        marginBottom: 14,
 
         shadowColor: 'black',
         shadowOffset: { width: 0, height: 1 },
@@ -61,7 +71,10 @@ const styles = StyleSheet.create({
         shadowRadius: 1,  
         elevation: 5,
 
-        width: '100%',
+        width: 350,
+        height: 80,
+        maxWidth: '80%'
+    
     },
 
     square: {
@@ -71,7 +84,6 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         alignItems: 'center',
         justifyContent: 'center',
-        
     },
 
     viewLeft: {
@@ -83,8 +95,9 @@ const styles = StyleSheet.create({
     },
 
     viewRight: {
-        maxWidth: '80%',
+        maxWidth: '95%',
         justifyContent: 'flex-end',
+        paddingLeft: 65,
     },
 
     text: {
@@ -96,15 +109,15 @@ const styles = StyleSheet.create({
 
     modal: {
         width: '80%',
-        height: '70%',
+        height: '50%',
         justifyContent: 'flex-start',
         alignItems: 'center',
-        backgroundColor: '#CFCFCF',
+        backgroundColor: '#E8E8E8',
         borderRadius: 15,
         borderColor: 'black',
         borderWidth: 2,
         alignSelf: 'center',
-        marginTop: 100
+        marginTop: 200
     },
 
     modalBar: {

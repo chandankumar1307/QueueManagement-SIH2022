@@ -1,22 +1,21 @@
-import * as React from 'react';
-import { SafeAreaView, StyleSheet, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
-import TopMenu from '../components/TopMenu';
 
-export default function JoinScreen({navigation}) {
+export default function JoinScreen() {
   return (
-    <SafeAreaView style={styles.container}>
-        <TopMenu navigation={navigation}/>
-        <Text>Join Page</Text>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <Text>Join Screen</Text>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F7F7F7',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
+    borderRadius: 40,
+    marginTop: 3,
   },
-  });
+})
