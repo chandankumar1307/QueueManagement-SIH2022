@@ -1,22 +1,21 @@
-import * as React from 'react';
-import { SafeAreaView, StyleSheet, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
-import TopMenu from '../components/TopMenu';
 
-export default function ManageScreen({navigation}) {
+export default function ManageScreen() {
   return (
-    <SafeAreaView style={styles.container}>
-        <TopMenu navigation={navigation}/>
-        <Text>Manage Page</Text>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <Text>Manage Screen</Text>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F7F7F7',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
+    borderRadius: 40,
+    marginTop: 3,
   },
-  });
+})
