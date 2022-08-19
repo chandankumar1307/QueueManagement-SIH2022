@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, TextInput, ImageBackground, Pressable } from 'react-native';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Dropdown } from 'react-native-element-dropdown';
 
 import authenticate from '../src/auth';
@@ -20,6 +20,7 @@ const auth = (number, userType, state, setState) => {
 }
 
 export default function LoginScreen( { route, navigation } ) {
+    const {appState, setAppState} = useContext(AppStateContext);
     const [number, setNumber] = useState();
     const [userType, setUserType] = useState();
 
@@ -57,8 +58,9 @@ export default function LoginScreen( { route, navigation } ) {
                   <Pressable 
                     onPress={
                       () => {
-                        auth(number, userType, route.params.state, route.params.setState);
-                        navigation.navigate("Otp");
+                        auth(number, userType, appState, setAppState);
+                        {//navigation.navigate("Otp");
+                        }
                       }
                     } 
                     style={styles.buttonStyle}
