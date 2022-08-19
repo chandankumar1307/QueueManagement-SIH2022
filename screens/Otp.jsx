@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, Pressable } from 'react-native';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 import OtpInput from '../components/OtpInput';
 
@@ -8,6 +8,15 @@ export default function OtpScreen( { navigation } ) {
     const [value2, setValue2] = useState();
     const [value3, setValue3] = useState();
     const [value4, setValue4] = useState();
+
+    const b1Ref = useRef(null);
+    const b2Ref = useRef(null);
+    const b3Ref = useRef(null);
+    const b4Ref = useRef(null);
+
+    const focusB2 = () => b2Ref.current.focus(); 
+    const focusB3 = () => b3Ref.current.focus(); 
+    const focusB4 = () => b4Ref.current.focus(); 
 
 
   return (
@@ -18,10 +27,10 @@ export default function OtpScreen( { navigation } ) {
         </View>
 
         <View style={styles.otpInputContainer}>
-            <OtpInput setText={setValue1}/>
-            <OtpInput setText={setValue2}/>
-            <OtpInput setText={setValue3}/>
-            <OtpInput setText={setValue4}/>
+            <OtpInput value={value1} setText={setValue1} setRef={b1Ref} focusNext={focusB2} autofocus={true}/>
+            <OtpInput value={value2} setText={setValue2} setRef={b2Ref} focusNext={focusB3} autofocus={false}/>
+            <OtpInput value={value3} setText={setValue3} setRef={b3Ref} focusNext={focusB4} autofocus={false}/>
+            <OtpInput value={value4} setText={setValue4} setRef={b4Ref} focusNext={null} autofocus={false}/>
         </View>
 
         <View style={styles.buttonContainer}>
