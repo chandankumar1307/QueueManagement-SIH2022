@@ -9,6 +9,7 @@ import LoginScreen from './screens/Login';
 import SignupScreen from './screens/Signup';
 import HomeScreen from './screens/Home';
 import OtpScreen from './screens/Otp';
+import SearchScreen from './screens/SearchScreen';
 
 import initialState from './src/state';
 
@@ -55,6 +56,7 @@ export default function App() {
           )
         }
         <Stack.Screen name="Otp" component={OtpScreen} />
+        <Stack.Screen name="Search" component={SearchScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
